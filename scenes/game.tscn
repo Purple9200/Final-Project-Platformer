@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw1tcjki8hqy6"]
+[gd_scene load_steps=13 format=3 uid="uid://bw1tcjki8hqy6"]
 
 [ext_resource type="PackedScene" uid="uid://duqjexlvgtpdc" path="res://scenes/player.tscn" id="1_laufy"]
 [ext_resource type="Texture2D" uid="uid://bh5pussrsjm00" path="res://assets/sprites/world_tileset.png" id="2_dwhi0"]
 [ext_resource type="PackedScene" uid="uid://ca4l12cdq1fl7" path="res://platform.tscn" id="3_s11qr"]
 [ext_resource type="PackedScene" uid="uid://doirsnv26lpua" path="res://coin.tscn" id="4_jsi3a"]
 [ext_resource type="PackedScene" uid="uid://d0pk1xysmvkhh" path="res://scenes/killzone.tscn" id="5_rd0ha"]
+[ext_resource type="PackedScene" uid="uid://cggt7gftxwpg4" path="res://slime.tscn" id="6_2bffk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nis7t"]
 texture = ExtResource("2_dwhi0")
@@ -408,6 +409,21 @@ sources/0 = SubResource("TileSetAtlasSource_nis7t")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3hir7"]
 distance = -8.0
 
+[sub_resource type="Animation" id="Animation_spcrq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(341, 22)]
+}
+
 [sub_resource type="Animation" id="Animation_yc35h"]
 resource_name = "move"
 length = 1.5
@@ -423,21 +439,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(339, 22), Vector2(429, 22)]
-}
-
-[sub_resource type="Animation" id="Animation_spcrq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(341, 22)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6hcqd"]
@@ -515,4 +516,5 @@ libraries = {
 }
 autoplay = "move"
 
-[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[node name="Slime" parent="." instance=ExtResource("6_2bffk")]
+position = Vector2(504, 37)
