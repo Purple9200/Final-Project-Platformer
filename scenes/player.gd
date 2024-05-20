@@ -1,22 +1,20 @@
 extends CharacterBody2D
-
-
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
-
+@export var movement_data : PlayerMovementData
+var just_wall_jumped = false
+var was_wall_normal = Vector2.ZERO
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@onready var wall_jump_timer = $WallJumpTimer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _physics_process(delta):
-	# Add the gravity.
+	handle_wall_jump()
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = movement_data.jump_velocity
 
 	
 	var direction = Input.get_axis("move_left", "move_right")
@@ -34,8 +32,19 @@ func _physics_process(delta):
 		animated_sprite_2d.play("jump")
 	
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * movement_data.speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, movement_data.speed)
 
 	move_and_slide()
+
+
+func handle_wall_jump():
+	if not is_on_wall_only() and wall_jump_timer.time_left <= 0.0: return
+	var wall_normal = get_wall_normal()
+	if wall_jump_timer.time_left > 0.0:
+		wall_normal = was_wall_normal
+	if Input.is_action_just_pressed("jump"):
+		velocity.x = wall_normal.x * movement_data.speed
+		velocity.y = movement_data.jump_velocity
+		just_wall_jumped = true

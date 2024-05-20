@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://duqjexlvgtpdc"]
+[gd_scene load_steps=27 format=3 uid="uid://duqjexlvgtpdc"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_bsrao"]
 [ext_resource type="Texture2D" uid="uid://b0mub1tsga1y1" path="res://assets/sprites/knight.png" id="1_leogg"]
+[ext_resource type="Resource" uid="uid://bowhf7qbosh68" path="res://DefaultMovementData.tres" id="2_kabnq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pebyi"]
 atlas = ExtResource("1_leogg")
@@ -175,6 +176,7 @@ radius = 5.0
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_bsrao")
+movement_data = ExtResource("2_kabnq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
@@ -185,3 +187,7 @@ autoplay = "Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_0fgby")
+
+[node name="WallJumpTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
