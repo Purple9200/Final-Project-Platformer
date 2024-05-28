@@ -7,16 +7,21 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var wall_jump_timer = $WallJumpTimer
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+var jump_count = 0
+var max_jumps = 1
+
 func _physics_process(delta):
 	handle_wall_jump()
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		velocity.y = movement_data.jump_velocity
+		jump_count += 1
+	if is_on_floor():
+		jump_count=0
 
-	
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
