@@ -469,7 +469,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Player" parent="." instance=ExtResource("1_laufy")]
-position = Vector2(-257, 13)
+position = Vector2(-255, 47)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 2)
@@ -490,7 +490,7 @@ layer_1/tile_data = PackedInt32Array(65536, 0, 0, 131071, 0, 0, 262142, 0, 0, 26
 [node name="Killzone" parent="." instance=ExtResource("5_rd0ha")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(67, 463)
+position = Vector2(-208, 440)
 shape = SubResource("WorldBoundaryShape2D_3hir7")
 
 [node name="Coins" type="Node" parent="."]
