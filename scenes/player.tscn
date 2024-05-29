@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_bsrao"]
 [ext_resource type="Resource" uid="uid://bowhf7qbosh68" path="res://DefaultMovementData.tres" id="2_kabnq"]
-[ext_resource type="Texture2D" path="res://Final Project Platformer character-Sheet.png" id="3_gm8ll"]
+[ext_resource type="Texture2D" uid="uid://thrkqq41rfpr" path="res://Final Project Platformer character-Sheet.png" id="3_gm8ll"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8bn3v"]
 atlas = ExtResource("3_gm8ll")
