@@ -163,8 +163,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmcol"]
-radius = 3.0
-height = 14.0
+radius = 3.98296
+height = 16.2601
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -173,14 +173,14 @@ script = ExtResource("1_bsrao")
 movement_data = ExtResource("2_kabnq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -9)
-scale = Vector2(0.0259766, 0.0347656)
+position = Vector2(-0.113917, -10.8172)
+scale = Vector2(0.0371696, 0.0394198)
 sprite_frames = SubResource("SpriteFrames_w4vo2")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(-0.135792, -8.77728)
 shape = SubResource("CapsuleShape2D_kmcol")
 
 [node name="WallJumpTimer" type="Timer" parent="."]
