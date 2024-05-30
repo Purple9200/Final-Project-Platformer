@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dm1mhgwwwb2qi"]
 
-[ext_resource type="AudioStream" uid="uid://cvom7ifmvk6wb" path="res://assets/music/time_for_adventure.mp3" id="1_ssgvj"]
+[ext_resource type="AudioStream" uid="uid://davhxp0b3eeym" path="res://scenes/03. Blood Harvesting.mp3" id="1_ioug8"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
-stream = ExtResource("1_ssgvj")
+stream = ExtResource("1_ioug8")
 autoplay = true
 bus = &"Music"
